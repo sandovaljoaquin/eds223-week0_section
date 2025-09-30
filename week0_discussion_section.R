@@ -85,5 +85,16 @@ ggplot(gdw_df,
            y = dam_hgt_m)) + 
   geom_point() 
 
+# gdw_df also has a shape column which contains point coordinates 
+
+# Print first 3 rows of this column and look at class 
+
+head(gdw_df$shape, n = 3)
+class(gdw_df$shape)
+
+# dataframe needs to be spatially enabled to be a spatial object. Use sf package to do this 
+
+gdw_st <- st_read(here("data", "gdw.gdb")) |> 
+  clean_names()
 
 
